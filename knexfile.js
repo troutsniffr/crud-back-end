@@ -8,10 +8,6 @@ module.exports = {
   development: {
     client: 'pg',
     connection: `postgres://postgres:docker@localhost:5432/crud_app_db`,
-    
-    // {
-    //   // filename: './dev.sqlite3'
-    // }
   },
 
   staging: {

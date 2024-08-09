@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
       });
   });
   
-  // Authentication routes
+// Authentication routes
   app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await knex('users').where({ username }).first();
@@ -126,19 +126,6 @@ app.post('/users', authenticateUser, async (req, res) => {
     });
 });
 
-  // app.post('/users', authenticateUser, async (req, res) => {
-  //   const newUser = req.body;
-  //   knex('users')
-  //     .insert(newUser)
-  //     .returning('id')
-  //     .then((id) => {
-  //       res.status(201).json({ id: id[0], ...newUser });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       res.status(400).send("Error posting user");
-  //     });
-  // });
   
   app.put('/surfboards/:id', authenticateUser, (req, res) => {
     const updatedSurfboard = req.body;
